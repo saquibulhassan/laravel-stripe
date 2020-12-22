@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('customer/create', 'StripeController@customerCreate');
+Route::get('customer/create/charge', 'StripeController@createCharge');
+Route::get('customer/retrieve/charge', 'StripeController@retrieveCharge');
+Route::get('customer/retrieve/charges', 'StripeController@retrieveCharges');
+Route::get('customer/authorize/hold', 'StripeController@authorizeHold');
+Route::get('customer/authorize/hold/capture', 'StripeController@authorizeHoldCapture');
+
+
+Route::get('merchant/retrieve/balance', 'StripeController@retrieveBalance');
+Route::get('merchant/retrieve/transactions', 'StripeController@retrieveTransactionHistory');
